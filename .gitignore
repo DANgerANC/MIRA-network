@@ -1,0 +1,16 @@
+/target/
+/core/target/
+/.mira/
+*.log
+/.tools/
+
+# Локальные и временные результаты проверок
+/target/acceptance/
+/docs/validation/*/source-sha256.json
+
+# Локальные настройки редакторов и Windows
+.vscode/
+.idea/
+*.user
+*.suo
+Thumbs.db

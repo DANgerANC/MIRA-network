@@ -1,0 +1,41 @@
+Privacy: sanitized publication copy; addresses and identifiers redacted.
+Linux [REDACTED_HOSTNAME] 6.8.0-51-generic #52-Ubuntu SMP PREEMPT_DYNAMIC Thu Dec  5 13:09:44 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+rustc 1.98.1 (48a229cea 2026-09-01)
+binary: rustc
+commit-hash: 48a229ceaefd4985c50990b14116b6d856af0985
+commit-date: 2026-09-01
+host: x86_64-unknown-linux-gnu
+release: 1.98.1
+LLVM version: 22.1.8
+cargo 1.98.1 (797e8a9bc 2026-08-05)
+QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+Copyright (c) 2003-2023 Fabrice Bellard and the QEMU Project developers
+aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Заголовок ELF:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Класс:                             ELF64
+  Данные:                            дополнение до 2, от младшего к старшему
+  Версия:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  Версия ABI:                        0
+  Тип:                               DYN (Position-Independent Executable file)
+  Машина:                            AArch64
+  Версия:                            0x1
+  Адрес точки входа:               0x43a80
+  Начало заголовков программы:          64 (байт в файле)
+  Начало заголовков раздела:          3807064 (байт в файле)
+  Флаги:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         10
+  Size of section headers:           64 (bytes)
+  Number of section headers:         30
+  Section header string table index: 29
+727e367da199f8f16c77bfc6ca5b30808a14af101a0d4b1c733c5d53a787cba7  [REDACTED_PATH]
+1d6bffe64b848468ac97f821d369a4846d983de1800ccf6b5ec8853e85cefc55 *noble-server-cloudimg-arm64.img
+image_url=https://cloud-images.ubuntu.com/noble/20260926/noble-server-cloudimg-arm64.img
+qemu-system-aarch64 -machine virt -accel tcg\,thread=multi -cpu cortex-a72 -smp 2 -m 1536 -bios /usr/share/qemu-efi-aarch64/QEMU_EFI.fd -display none -monitor none -serial file:[REDACTED_PATH] -drive if=none\,file=[REDACTED_PATH] -device virtio-blk-pci\,drive=root -drive if=none\,file=[REDACTED_PATH] -device virtio-blk-pci\,drive=seed -netdev user\,id=net -device virtio-net-pci\,netdev=net\,romfile= -no-reboot 

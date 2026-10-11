@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Linux checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.88.0
+      - name: Check workspace
+        run: cargo check --workspace --locked
+      - name: Run tests
+        run: cargo test --workspace --locked
+      - name: Build release
+        run: cargo build --workspace --release --locked
+
+  windows:
+    name: Windows checks
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.88.0
+          targets: x86_64-pc-windows-msvc
+      - name: Check workspace
+        run: cargo check --workspace --locked
+      - name: Run tests
+        run: cargo test --workspace --locked
+      - name: Build release
+        run: cargo build --workspace --release --locked

@@ -1,0 +1,2052 @@
+{
+  "environment": "Android via ADB shell (not an APK sandbox)",
+  "binary": "[REDACTED_PATH]",
+  "work": "[REDACTED_PATH]",
+  "checks": [
+    {
+      "name": "help/version have no filesystem side effects",
+      "passed": true
+    },
+    {
+      "name": "version JSON",
+      "passed": true
+    },
+    {
+      "name": "initial status",
+      "passed": true
+    },
+    {
+      "name": "unicode and spaces in home",
+      "passed": true
+    },
+    {
+      "name": "first-run directories",
+      "passed": true
+    },
+    {
+      "name": "default configuration",
+      "passed": true
+    },
+    {
+      "name": "relative home",
+      "passed": true
+    },
+    {
+      "name": "MIRA_HOME",
+      "passed": true
+    },
+    {
+      "name": "CLI home overrides environment",
+      "passed": true
+    },
+    {
+      "name": "system architecture",
+      "passed": true
+    },
+    {
+      "name": "system resources",
+      "passed": true
+    },
+    {
+      "name": "invalid configuration preserves TOML",
+      "passed": true
+    },
+    {
+      "name": "concurrent configuration writes",
+      "passed": true
+    },
+    {
+      "name": "running CLI and HTTP status match",
+      "passed": true
+    },
+    {
+      "name": "HTTP version",
+      "passed": true
+    },
+    {
+      "name": "CLI and HTTP system agree",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /app.js",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /style.css",
+      "passed": true
+    },
+    {
+      "name": "unknown route",
+      "passed": true
+    },
+    {
+      "name": "second server rejected",
+      "passed": true
+    },
+    {
+      "name": "status follows live endpoint after config change",
+      "passed": true
+    },
+    {
+      "name": "graceful SIGTERM",
+      "passed": true
+    },
+    {
+      "name": "stopped and lock released",
+      "passed": true
+    },
+    {
+      "name": "restart uses new port",
+      "passed": true
+    },
+    {
+      "name": "configuration survives restart",
+      "passed": true
+    },
+    {
+      "name": "graceful SIGINT",
+      "passed": true
+    },
+    {
+      "name": "stopped and lock released",
+      "passed": true
+    },
+    {
+      "name": "persistent INFO DEBUG ERROR logs",
+      "passed": true
+    },
+    {
+      "name": "shutdown flushed to log",
+      "passed": true
+    },
+    {
+      "name": "corrupt TOML preserved",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "mkdir [REDACTED_PATH]"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "push",
+        "[REDACTED_PATH]",
+        "[REDACTED_PATH]/mira"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "[REDACTED_PATH]: 1 file pushed, 0 skipped. 72.4 MB/s (3647760 bytes in 0.048s)\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "chmod 700 [REDACTED_PATH]/mira"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "getprop ro.product.manufacturer"
+      ],
+      "exit_code": 0,
+      "stdout": "Xiaomi\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "getprop ro.product.model"
+      ],
+      "exit_code": 0,
+      "stdout": "21081111RG\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "getprop ro.build.version.release"
+      ],
+      "exit_code": 0,
+      "stdout": "14\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "getprop ro.build.version.sdk"
+      ],
+      "exit_code": 0,
+      "stdout": "34\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "getprop ro.product.cpu.abilist"
+      ],
+      "exit_code": 0,
+      "stdout": "arm64-v8a,armeabi-v7a,armeabi\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "uname -a"
+      ],
+      "exit_code": 0,
+      "stdout": "Linux [REDACTED_HOSTNAME] 4.19.191-gfbbcacfb8b1f #1 SMP PREEMPT Mon Jul 7 02:46:38 UTC 2025 aarch64 Toybox\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "id"
+      ],
+      "exit_code": 0,
+      "stdout": "uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "sha256sum [REDACTED_PATH]/mira"
+      ],
+      "exit_code": 0,
+      "stdout": "92199eeaff98467e934e4e83d86ebb94ca47b9b0b63b0ac4730cf45e6261982f  [REDACTED_PATH]/mira\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home [REDACTED_PATH]/help-must-not-create --help"
+      ],
+      "exit_code": 0,
+      "stdout": "MIRA Core — standalone system diagnostics\n\nUsage: mira [OPTIONS] <COMMAND>\n\nCommands:\n  version  Show the version of this executable\n  status   Query the server using this data directory\n  system   Discover local hardware, disks and network interfaces\n  config   Show or update persistent configuration\n  serve    Run the HTTP API and diagnostic Web UI in the foreground\n  help     Print this message or the help of the given subcommand(s)\n\nOptions:\n      --home <HOME>  Data root containing config/, data/ and logs/ [env: MIRA_HOME=]\n      --json         Print machine-readable JSON (logs go to stderr)\n  -h, --help         Print help\n  -V, --version      Print version\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home [REDACTED_PATH]/help-must-not-create --version"
+      ],
+      "exit_code": 0,
+      "stdout": "mira 0.1.0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "test ! -e [REDACTED_PATH]/help-must-not-create"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' version --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config paths --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "test -d '[REDACTED_PATH][REDACTED_PATH]' && test -d '[REDACTED_PATH]' && test -d '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"MIRA\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"info\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home relative-home config paths --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && env MIRA_HOME=[REDACTED_PATH] [REDACTED_PATH]/mira config paths --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && env MIRA_HOME=[REDACTED_PATH] [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config paths --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' system --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"os\": \"21081111RG\",\n  \"os_version\": \"Android 14 on 21081111RG\",\n  \"architecture\": \"aarch64\",\n  \"hostname\": \"[REDACTED_HOSTNAME]\",\n  \"cpu\": {\n    \"model\": \"Cortex-A55\",\n    \"logical_cores\": 8,\n    \"physical_cores\": 8\n  },\n  \"ram_total_bytes\": 7866048512,\n  \"ram_available_bytes\": 1624469504,\n  \"disks\": [\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 849756160,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 12038144,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 12038144,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 22323200,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 22323200,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 135168\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 135168\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 4587520,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 4587520,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 45297664,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 45297664,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 43245568,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 43245568,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 24027136,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 24027136,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 2707456,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 2707456,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 5824512,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 5824512,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8122368,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8122368,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 5767168,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 5767168,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 6320128,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 6320128,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 17281024,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 17281024,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 40038400,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 40038400,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 856064,\n      \"available_bytes\": 12288\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 856064,\n      \"available_bytes\": 12288\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 7589888,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 42602496,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 42602496,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 7589888,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 36659200,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 36659200,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8237056,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8237056,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 14663680,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 14663680,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 3579904,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 3579904,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 30257152,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 30257152,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 208896\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 208896\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 1069056,\n      \"available_bytes\": 8192\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 1069056,\n      \"available_bytes\": 8192\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 11505664,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 11505664,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 36864\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 237568,\n      \"available_bytes\": 36864\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 1159168,\n      \"available_bytes\": 12288\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 1159168,\n      \"available_bytes\": 12288\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 34811904,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 34811904,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 749568,\n      \"available_bytes\": 16384\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 749568,\n      \"available_bytes\": 16384\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 3805184,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 3805184,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 69345280,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 69345280,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 113569792,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 113569792,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 41107456,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 41107456,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 47030272,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 47030272,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 43077632,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 43077632,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8581120,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 8581120,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 2215936,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 2046640128,\n      \"available_bytes\": 580608000\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 114124881920,\n      \"available_bytes\": 13585281024\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 114124881920,\n      \"available_bytes\": 13585281024\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 28295168,\n      \"available_bytes\": 27095040\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 115245056,\n      \"available_bytes\": 102961152\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 408944640,\n      \"available_bytes\": 354369536\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 0,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 2678648832,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 994521088,\n      \"available_bytes\": 0\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 114124881920,\n      \"available_bytes\": 13585281024\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 114124881920,\n      \"available_bytes\": 13585281024\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 114124881920,\n      \"available_bytes\": 13585281024\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 1479061504,\n      \"available_bytes\": 0\n    }\n  ],\n  \"network_interfaces\": [\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    }\n  ],\n  \"local_ips\": [\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\"\n  ],\n  \"warnings\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "uname -m"
+      ],
+      "exit_code": 0,
+      "stdout": "aarch64\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cat /proc/meminfo"
+      ],
+      "exit_code": 0,
+      "stdout": "MemTotal:        7681688 kB\nMemFree:          156864 kB\nMemAvailable:    1590804 kB\nBuffers:            2052 kB\nCached:          1449844 kB\nSwapCached:        35328 kB\nActive:          3191472 kB\nInactive:        1424764 kB\nActive(anon):    2688132 kB\nInactive(anon):   533612 kB\nActive(file):     503340 kB\nInactive(file):   891152 kB\nUnevictable:       44760 kB\nMlocked:           44760 kB\nSwapTotal:       8388604 kB\nSwapFree:        5039260 kB\nDirty:              3596 kB\nWriteback:             0 kB\nAnonPages:       3201356 kB\nMapped:           955100 kB\nShmem:             21800 kB\nKReclaimable:     212900 kB\nSlab:             516564 kB\nSReclaimable:     143060 kB\nSUnreclaim:       373504 kB\nKernelStack:      147600 kB\nPageTables:       253620 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    12229448 kB\nCommitted_AS:   254734424 kB\nVmallocTotal:   263061440 kB\nVmallocUsed:      287292 kB\nVmallocChunk:          0 kB\nPercpu:            10912 kB\nCmaTotal:         671744 kB\nCmaFree:             252 kB\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set node_name 'МИРА acceptance' --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"info\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:08.914019Z  INFO mira: Configuration saved; restart server to apply key=node_name\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set logging.level DEBUG --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:08.966548Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set http.port 28234 --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28234\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:09.015842Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.020428Z  INFO mira: Configuration saved; restart server to apply key=http.port\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "schema_version = 1\nnode_name = \"МИРА acceptance\"\n\n[http]\nhost = \"[REDACTED_IP]\"\nport = 28234\n\n[logging]\nlevel = \"debug\"\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set http.port 0"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.113615Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.113886Z ERROR mira: Command failed error=http.port must be 1..65535 and http.host must not be multicast\nMIRA error: http.port must be 1..65535 and http.host must not be multicast\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set http.port 65536"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.162885Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.163235Z ERROR mira: Command failed error=http.port must be 1..65535: number too large to fit in target type\nMIRA error: http.port must be 1..65535: number too large to fit in target type\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set http.host invalid"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.209386Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.209621Z ERROR mira: Command failed error=http.host must be an IPv4 or IPv6 address: invalid IP address syntax\nMIRA error: http.host must be an IPv4 or IPv6 address: invalid IP address syntax\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set node_name ''"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.259837Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.260221Z ERROR mira: Command failed error=node_name must contain 1..128 characters without control characters\nMIRA error: node_name must contain 1..128 characters without control characters\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set unknown x"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.310847Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.311094Z ERROR mira: Command failed error=Unknown setting unknown; use node_name, http.host, http.port or logging.level\nMIRA error: Unknown setting unknown; use node_name, http.host, http.port or logging.level\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "schema_version = 1\nnode_name = \"МИРА acceptance\"\n\n[http]\nhost = \"[REDACTED_IP]\"\nport = 28234\n\n[logging]\nlevel = \"debug\"\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set logging.level DEBUG --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28234\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:09.410011Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.414307Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set node_name 'МИРА concurrent' --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28234\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:09.441801Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.446540Z  INFO mira: Configuration saved; restart server to apply key=node_name\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28234\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:09.495903Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "nohup sh -c '[REDACTED_PATH]/mira --home '\"'\"'[REDACTED_PATH]'\"'\"' serve > [REDACTED_PATH]/server-0.log 2>&1 & child=$!; printf '\"'\"'%s'\"'\"' \"$child\" > [REDACTED_PATH]/server-0.pid; wait \"$child\"; printf '\"'\"'%s'\"'\"' \"$?\" > [REDACTED_PATH]/server-0.exit' > [REDACTED_PATH]/launcher-0.log 2>&1 < /dev/null &"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "forward",
+        "tcp:0",
+        "tcp:28234"
+      ],
+      "exit_code": 0,
+      "stdout": "62044\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat [REDACTED_PATH]/server-0.pid"
+      ],
+      "exit_code": 0,
+      "stdout": "28485",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-10-03T01:13:09.657111Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.657535Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28234/\n2026-10-03T01:13:09.657636Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28234\n2026-10-03T01:13:09.659222Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28234\n2026-10-03T01:13:09.660996Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:28234)\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' serve"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-10-03T01:13:09.777996Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.778337Z ERROR mira: Command failed error=Another MIRA server is using this data directory, or its lock is unavailable: Try again (os error 11)\nMIRA error: Another MIRA server is using this data directory, or its lock is unavailable: Try again (os error 11)\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config set http.port 28235 --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28235\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:09.825304Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.829743Z  INFO mira: Configuration saved; restart server to apply key=http.port\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-10-03T01:13:09.874365Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.874731Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28234/\n2026-10-03T01:13:09.874807Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28234\n2026-10-03T01:13:09.876099Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28234\n2026-10-03T01:13:09.878000Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:28234)\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "kill -TERM 28485"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "test -f [REDACTED_PATH]/server-0.exit"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat [REDACTED_PATH]/server-0.exit"
+      ],
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": "2026-10-03T01:13:10.039828Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "nohup sh -c '[REDACTED_PATH]/mira --home '\"'\"'[REDACTED_PATH]'\"'\"' serve > [REDACTED_PATH]/server-1.log 2>&1 & child=$!; printf '\"'\"'%s'\"'\"' \"$child\" > [REDACTED_PATH]/server-1.pid; wait \"$child\"; printf '\"'\"'%s'\"'\"' \"$?\" > [REDACTED_PATH]/server-1.exit' > [REDACTED_PATH]/launcher-1.log 2>&1 < /dev/null &"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "forward",
+        "tcp:0",
+        "tcp:28235"
+      ],
+      "exit_code": 0,
+      "stdout": "52827\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat [REDACTED_PATH]/server-1.pid"
+      ],
+      "exit_code": 0,
+      "stdout": "28575",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-10-03T01:13:10.310931Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:10.311540Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28235/\n2026-10-03T01:13:10.311626Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28235\n2026-10-03T01:13:10.312926Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28235\n2026-10-03T01:13:10.314434Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:28235)\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config --json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 28235\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-10-03T01:13:10.362329Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "kill -INT 28575"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "test -f [REDACTED_PATH]/server-1.exit"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat [REDACTED_PATH]/server-1.exit"
+      ],
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' status --json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": "2026-10-03T01:13:10.525394Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cat '[REDACTED_PATH]'/*.log"
+      ],
+      "exit_code": 0,
+      "stdout": "2026-10-03T01:13:08.914174Z  INFO mira: Configuration saved; restart server to apply key=node_name\n2026-10-03T01:13:08.966613Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n2026-10-03T01:13:09.015927Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.020461Z  INFO mira: Configuration saved; restart server to apply key=http.port\n2026-10-03T01:13:09.113695Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.113899Z ERROR mira: Command failed error=http.port must be 1..65535 and http.host must not be multicast\n2026-10-03T01:13:09.163025Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.163292Z ERROR mira: Command failed error=http.port must be 1..65535: number too large to fit in target type\n2026-10-03T01:13:09.209454Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.209635Z ERROR mira: Command failed error=http.host must be an IPv4 or IPv6 address: invalid IP address syntax\n2026-10-03T01:13:09.260016Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.260274Z ERROR mira: Command failed error=node_name must contain 1..128 characters without control characters\n2026-10-03T01:13:09.310937Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.311107Z ERROR mira: Command failed error=Unknown setting unknown; use node_name, http.host, http.port or logging.level\n2026-10-03T01:13:09.410240Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.414347Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n2026-10-03T01:13:09.442003Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.446637Z  INFO mira: Configuration saved; restart server to apply key=node_name\n2026-10-03T01:13:09.496136Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.563889Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.566658Z  INFO mira::http: MIRA Core started version=\"0.1.0\" node=МИРА concurrent address=[REDACTED_IP]:28234\n2026-10-03T01:13:09.578085Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:09.657193Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.657559Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28234/\n2026-10-03T01:13:09.657648Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28234\n2026-10-03T01:13:09.659244Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28234\n2026-10-03T01:13:09.660571Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:09.661014Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:28234)\n2026-10-03T01:13:09.677029Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:09.684291Z DEBUG mira::http: HTTP request method=GET path=/api/v1/version status=200 elapsed_ms=0\n2026-10-03T01:13:09.704077Z DEBUG mira::system: System information collected interfaces=35 disks=150\n2026-10-03T01:13:09.705851Z DEBUG mira::http: HTTP request method=GET path=/api/v1/system status=200 elapsed_ms=15\n2026-10-03T01:13:09.713380Z DEBUG mira::http: HTTP request method=GET path=/ status=200 elapsed_ms=0\n2026-10-03T01:13:09.719379Z DEBUG mira::http: HTTP request method=GET path=/app.js status=200 elapsed_ms=0\n2026-10-03T01:13:09.725014Z DEBUG mira::http: HTTP request method=GET path=/style.css status=200 elapsed_ms=0\n2026-10-03T01:13:09.737004Z DEBUG mira::http: HTTP request method=GET path=/missing-route status=404 elapsed_ms=0\n2026-10-03T01:13:09.778211Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.778362Z ERROR mira: Command failed error=Another MIRA server is using this data directory, or its lock is unavailable: Try again (os error 11)\n2026-10-03T01:13:09.825368Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.829781Z  INFO mira: Configuration saved; restart server to apply key=http.port\n2026-10-03T01:13:09.874426Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:09.874755Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28234/\n2026-10-03T01:13:09.874815Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28234\n2026-10-03T01:13:09.876121Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28234\n2026-10-03T01:13:09.877374Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:09.878046Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:28234)\n2026-10-03T01:13:09.916861Z  INFO mira::http: Shutdown requested\n2026-10-03T01:13:09.917258Z  INFO mira::http: MIRA Core stopped\n2026-10-03T01:13:10.040028Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:10.108510Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:10.110968Z  INFO mira::http: MIRA Core started version=\"0.1.0\" node=МИРА concurrent address=[REDACTED_IP]:28235\n2026-10-03T01:13:10.225667Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:10.311144Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:10.311586Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:28235/\n2026-10-03T01:13:10.311646Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:28235\n2026-10-03T01:13:10.312994Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:28235\n2026-10-03T01:13:10.314103Z DEBUG mira::http: HTTP request method=GET path=/api/v1/status status=200 elapsed_ms=0\n2026-10-03T01:13:10.362520Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-10-03T01:13:10.400922Z  INFO mira::http: Shutdown requested\n2026-10-03T01:13:10.401418Z  INFO mira::http: MIRA Core stopped\n2026-10-03T01:13:10.525537Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "schema_version = 1\nnode_name = \"МИРА concurrent\"\n\n[http]\nhost = \"[REDACTED_IP]\"\nport = 28235\n\n[logging]\nlevel = \"debug\"\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "printf '%s' '[invalid TOML\n' > '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "cd [REDACTED_PATH] && [REDACTED_PATH]/mira --home '[REDACTED_PATH]' config"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "MIRA error: Invalid configuration: [REDACTED_PATH]: TOML parse error at line 1, column 9\n  |\n1 | [invalid TOML\n  |         ^\nunclosed table, expected `]`\n\n"
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "exec-out",
+        "cat '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "[invalid TOML\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "shell",
+        "printf '%s' 'schema_version = 1\nnode_name = \"МИРА concurrent\"\n\n[http]\nhost = \"[REDACTED_IP]\"\nport = 28235\n\n[logging]\nlevel = \"debug\"\n' > '[REDACTED_PATH]'"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "forward",
+        "--remove",
+        "tcp:62044"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".tools\\android\\platform-tools\\adb.exe",
+        "-s",
+        "<device>",
+        "forward",
+        "--remove",
+        "tcp:52827"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "device": {
+    "manufacturer": "Xiaomi",
+    "model": "21081111RG",
+    "android": "14",
+    "api": "34",
+    "abis": "arm64-v8a,armeabi-v7a,armeabi",
+    "uname": "Linux [REDACTED_HOSTNAME] 4.19.191-gfbbcacfb8b1f #1 SMP PREEMPT Mon Jul 7 02:46:38 UTC 2025 aarch64 Toybox",
+    "user": "uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0",
+    "binary_sha256": "92199eeaff98467e934e4e83d86ebb94ca47b9b0b63b0ac4730cf45e6261982f"
+  },
+  "system": {
+    "os": "21081111RG",
+    "os_version": "Android 14 on 21081111RG",
+    "architecture": "aarch64",
+    "hostname": "[REDACTED_HOSTNAME]",
+    "cpu": {
+      "model": "Cortex-A55",
+      "logical_cores": 8,
+      "physical_cores": 8
+    },
+    "ram_total_bytes": 7866048512,
+    "ram_available_bytes": 1624469504,
+    "disks": [
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 849756160,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 12038144,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 12038144,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 22323200,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 22323200,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 135168
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 135168
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 4587520,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 4587520,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 45297664,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 45297664,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 43245568,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 43245568,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 24027136,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 24027136,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 2707456,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 2707456,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 5824512,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 5824512,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8122368,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8122368,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 5767168,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 5767168,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 6320128,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 6320128,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 17281024,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 17281024,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 40038400,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 40038400,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 856064,
+        "available_bytes": 12288
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 856064,
+        "available_bytes": 12288
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 7589888,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 42602496,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 42602496,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 7589888,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 36659200,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 36659200,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8237056,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8237056,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 14663680,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 14663680,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 3579904,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 3579904,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 30257152,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 30257152,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 208896
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 208896
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 1069056,
+        "available_bytes": 8192
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 1069056,
+        "available_bytes": 8192
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 11505664,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 11505664,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 36864
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 237568,
+        "available_bytes": 36864
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 1159168,
+        "available_bytes": 12288
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 1159168,
+        "available_bytes": 12288
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 34811904,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 34811904,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 749568,
+        "available_bytes": 16384
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 749568,
+        "available_bytes": 16384
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 3805184,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 3805184,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 69345280,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 69345280,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 113569792,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 113569792,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 41107456,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 41107456,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 47030272,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 47030272,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 43077632,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 43077632,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8581120,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 8581120,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 2215936,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 2046640128,
+        "available_bytes": 580608000
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 114124881920,
+        "available_bytes": 13585281024
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 114124881920,
+        "available_bytes": 13585281024
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 28295168,
+        "available_bytes": 27095040
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 115245056,
+        "available_bytes": 102961152
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 408944640,
+        "available_bytes": 354369536
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 0,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 2678648832,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 994521088,
+        "available_bytes": 0
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 114124881920,
+        "available_bytes": 13585281024
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 114124881920,
+        "available_bytes": 13585281024
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 114124881920,
+        "available_bytes": 13585281024
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 1479061504,
+        "available_bytes": 0
+      }
+    ],
+    "network_interfaces": [
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      }
+    ],
+    "local_ips": [
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]"
+    ],
+    "warnings": []
+  },
+  "passed": true,
+  "privacy": {
+    "sanitized": true,
+    "policy": "mira-report-redaction-v1",
+    "notice": "Publication copy; original check outcomes retained. Addresses, identifiers and local paths redacted; review free-form output before sharing."
+  }
+}

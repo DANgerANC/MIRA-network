@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRA Core — диагностика</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="eyebrow">СИСТЕМНАЯ ДИАГНОСТИКА</p><h1>MIRA Core</h1></div>
+      <span id="status" class="status" role="status">Подключение…</span>
+    </header>
+    <p class="intro">Состояние ядра и ресурсы этой машины.</p>
+    <noscript>Для получения данных HTTP API включите JavaScript.</noscript>
+    <section class="metrics" aria-label="Основные сведения">
+      <article><h2>Версия</h2><p id="version">—</p></article>
+      <article><h2>Операционная система</h2><p id="os">—</p></article>
+      <article><h2>Архитектура</h2><p id="architecture">—</p></article>
+      <article><h2>Оперативная память</h2><p id="ram">—</p><small id="ram-available"></small></article>
+      <article><h2>Имя машины</h2><p id="hostname">—</p></article>
+      <article><h2>Локальные IP</h2><p id="ips">—</p></article>
+    </section>
+    <section class="panel"><h2>Процессор</h2><p id="cpu">—</p></section>
+    <section class="panel"><h2>Диски</h2><div class="scroll"><table>
+      <thead><tr><th>Точка подключения</th><th>Свободно</th><th>Всего</th></tr></thead>
+      <tbody id="disks"><tr><td colspan="3">Ожидание данных…</td></tr></tbody>
+    </table></div></section>
+    <section class="panel"><h2>Сетевые интерфейсы</h2><div class="scroll"><table>
+      <thead><tr><th>Интерфейс</th><th>MAC</th><th>IP / префикс</th></tr></thead>
+      <tbody id="networks"><tr><td colspan="3">Ожидание данных…</td></tr></tbody>
+    </table></div></section>
+    <p id="message" role="status"></p>
+    <footer><span id="updated">Автообновление каждые 5 секунд</span><button id="refresh" type="button">Обновить</button></footer>
+  </main>
+</body>
+</html>

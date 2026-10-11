@@ -1,0 +1,618 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "binary": "[REDACTED_PATH]",
+  "work": "[REDACTED_PATH]",
+  "checks": [
+    {
+      "name": "help/version have no filesystem side effects",
+      "passed": true
+    },
+    {
+      "name": "version JSON",
+      "passed": true
+    },
+    {
+      "name": "initial status",
+      "passed": true
+    },
+    {
+      "name": "unicode and spaces in home",
+      "passed": true
+    },
+    {
+      "name": "first-run directories",
+      "passed": true
+    },
+    {
+      "name": "default configuration",
+      "passed": true
+    },
+    {
+      "name": "relative home",
+      "passed": true
+    },
+    {
+      "name": "MIRA_HOME",
+      "passed": true
+    },
+    {
+      "name": "CLI home overrides environment",
+      "passed": true
+    },
+    {
+      "name": "system architecture",
+      "passed": true
+    },
+    {
+      "name": "system resources",
+      "passed": true
+    },
+    {
+      "name": "invalid configuration preserves TOML",
+      "passed": true
+    },
+    {
+      "name": "concurrent configuration writes",
+      "passed": true
+    },
+    {
+      "name": "running CLI and HTTP status match",
+      "passed": true
+    },
+    {
+      "name": "HTTP version",
+      "passed": true
+    },
+    {
+      "name": "CLI and HTTP system agree",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /app.js",
+      "passed": true
+    },
+    {
+      "name": "embedded asset /style.css",
+      "passed": true
+    },
+    {
+      "name": "unknown route",
+      "passed": true
+    },
+    {
+      "name": "second server rejected",
+      "passed": true
+    },
+    {
+      "name": "status follows live endpoint after config change",
+      "passed": true
+    },
+    {
+      "name": "stopped and lock released",
+      "passed": true
+    },
+    {
+      "name": "restart uses new port",
+      "passed": true
+    },
+    {
+      "name": "configuration survives restart",
+      "passed": true
+    },
+    {
+      "name": "stopped and lock released",
+      "passed": true
+    },
+    {
+      "name": "persistent INFO DEBUG ERROR logs",
+      "passed": true
+    },
+    {
+      "name": "corrupt TOML preserved",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]\\help-must-not-create",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "MIRA Core — standalone system diagnostics\n\nUsage: mira.exe [OPTIONS] <COMMAND>\n\nCommands:\n  version  Show the version of this executable\n  status   Query the server using this data directory\n  system   Discover local hardware, disks and network interfaces\n  config   Show or update persistent configuration\n  serve    Run the HTTP API and diagnostic Web UI in the foreground\n  help     Print this message or the help of the given subcommand(s)\n\nOptions:\n      --home <HOME>  Data root containing config/, data/ and logs/ [env: MIRA_HOME=]\n      --json         Print machine-readable JSON (logs go to stderr)\n  -h, --help         Print help\n  -V, --version      Print version\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]\\help-must-not-create",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "mira 0.1.0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "version",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "paths",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"MIRA\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"info\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "relative-home",
+        "config",
+        "paths",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "config",
+        "paths",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "paths",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"root\": \"[REDACTED_PATH]\",\n  \"config_file\": \"[REDACTED_PATH]\",\n  \"data_dir\": \"[REDACTED_PATH]\",\n  \"logs_dir\": \"[REDACTED_PATH]\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "system",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"os\": \"Windows\",\n  \"os_version\": \"Windows 11 Pro\",\n  \"architecture\": \"x86_64\",\n  \"hostname\": \"[REDACTED_HOSTNAME]\",\n  \"cpu\": {\n    \"model\": \"AMD Ryzen 9 7945HX with Radeon Graphics\",\n    \"logical_cores\": 32,\n    \"physical_cores\": 16\n  },\n  \"ram_total_bytes\": 50698809344,\n  \"ram_available_bytes\": 26232385536,\n  \"disks\": [\n    {\n      \"name\": \"\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 510982615040,\n      \"available_bytes\": 177464328192\n    },\n    {\n      \"name\": \"\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 6001171460096,\n      \"available_bytes\": 4847225225216\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mount_point\": \"[REDACTED_PATH]\",\n      \"total_bytes\": 255084982272,\n      \"available_bytes\": 21503631360\n    }\n  ],\n  \"network_interfaces\": [\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": [\n        \"[REDACTED_IP]\",\n        \"[REDACTED_IP]\"\n      ]\n    },\n    {\n      \"name\": \"[REDACTED_DEVICE_NAME]\",\n      \"mac_address\": \"[REDACTED_MAC]\",\n      \"addresses\": []\n    }\n  ],\n  \"local_ips\": [\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\",\n    \"[REDACTED_IP]\"\n  ],\n  \"warnings\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "node_name",
+        "МИРА acceptance",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"info\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.578827Z  INFO mira: Configuration saved; restart server to apply key=node_name\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "logging.level",
+        "DEBUG",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 8787\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.598354Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "http.port",
+        "53214",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА acceptance\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53214\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.615132Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.618427Z  INFO mira: Configuration saved; restart server to apply key=http.port\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "http.port",
+        "0"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:02.635217Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.635433Z ERROR mira: Command failed error=http.port must be 1..65535 and http.host must not be multicast\nMIRA error: http.port must be 1..65535 and http.host must not be multicast\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "http.port",
+        "65536"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:02.653035Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.653243Z ERROR mira: Command failed error=http.port must be 1..65535: number too large to fit in target type\nMIRA error: http.port must be 1..65535: number too large to fit in target type\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "http.host",
+        "invalid"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:02.668847Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.669039Z ERROR mira: Command failed error=http.host must be an IPv4 or IPv6 address: invalid IP address syntax\nMIRA error: http.host must be an IPv4 or IPv6 address: invalid IP address syntax\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "node_name",
+        ""
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:02.684338Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.684514Z ERROR mira: Command failed error=node_name must contain 1..128 characters without control characters\nMIRA error: node_name must contain 1..128 characters without control characters\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "unknown",
+        "x"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:02.699935Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.700134Z ERROR mira: Command failed error=Unknown setting unknown; use node_name, http.host, http.port or logging.level\nMIRA error: Unknown setting unknown; use node_name, http.host, http.port or logging.level\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "node_name",
+        "МИРА concurrent",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53214\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.724264Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.727469Z  INFO mira: Configuration saved; restart server to apply key=node_name\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "logging.level",
+        "DEBUG",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53214\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.723008Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.751747Z  INFO mira: Configuration saved; restart server to apply key=logging.level\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53214\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:02.765822Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-09-30T23:58:02.799132Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:02.799471Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:53214/\n2026-09-30T23:58:02.799517Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:53214\n2026-09-30T23:58:02.801146Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:53214\n2026-09-30T23:58:02.801539Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:53214)\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "serve"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "2026-09-30T23:58:03.190736Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:03.191128Z ERROR mira: Command failed error=Another MIRA server is using this data directory, or its lock is unavailable: Процесс не может получить доступ к файлу, так как часть этого файла заблокирована другим процессом. (os error 33)\nMIRA error: Another MIRA server is using this data directory, or its lock is unavailable: Процесс не может получить доступ к файлу, так как часть этого файла заблокирована другим процессом. (os error 33)\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "set",
+        "http.port",
+        "53228",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53228\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:03.207207Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:03.210343Z  INFO mira: Configuration saved; restart server to apply key=http.port\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-09-30T23:58:03.223862Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:03.224130Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:53214/\n2026-09-30T23:58:03.224159Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:53214\n2026-09-30T23:58:03.225810Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:53214\n2026-09-30T23:58:03.226148Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:53214)\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": "2026-09-30T23:58:03.243284Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"ok\"\n}\n",
+      "stderr": "2026-09-30T23:58:03.772081Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n2026-09-30T23:58:03.772357Z DEBUG reqwest::connect: starting new connection: http://[REDACTED_IP]:53228/\n2026-09-30T23:58:03.772386Z DEBUG hyper_util::client::legacy::connect::http: connecting to [REDACTED_IP]:53228\n2026-09-30T23:58:03.773894Z DEBUG hyper_util::client::legacy::connect::http: connected to [REDACTED_IP]:53228\n2026-09-30T23:58:03.774290Z DEBUG hyper_util::client::legacy::pool: pooling idle connection for (\"http\", [REDACTED_IP]:53228)\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"node_name\": \"МИРА concurrent\",\n  \"http\": {\n    \"host\": \"[REDACTED_IP]\",\n    \"port\": 53228\n  },\n  \"logging\": {\n    \"level\": \"debug\"\n  }\n}\n",
+      "stderr": "2026-09-30T23:58:03.787782Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "status",
+        "--json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"core\": \"0.1.0\",\n  \"status\": \"stopped\"\n}\n",
+      "stderr": "2026-09-30T23:58:03.804245Z DEBUG mira: Configuration loaded home=[REDACTED_PATH]\n"
+    },
+    {
+      "argv": [
+        "[REDACTED_PATH]",
+        "--home",
+        "[REDACTED_PATH]",
+        "config"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "MIRA error: Invalid configuration: [REDACTED_PATH]: TOML parse error at line 1, column 9\n  |\n1 | [invalid TOML\n  |         ^\nunclosed table, expected `]`\n\n"
+    }
+  ],
+  "windows_graceful_shutdown_tested": false,
+  "system": {
+    "os": "Windows",
+    "os_version": "Windows 11 Pro",
+    "architecture": "x86_64",
+    "hostname": "[REDACTED_HOSTNAME]",
+    "cpu": {
+      "model": "AMD Ryzen 9 7945HX with Radeon Graphics",
+      "logical_cores": 32,
+      "physical_cores": 16
+    },
+    "ram_total_bytes": 50698809344,
+    "ram_available_bytes": 26232385536,
+    "disks": [
+      {
+        "name": "",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 510982615040,
+        "available_bytes": 177464328192
+      },
+      {
+        "name": "",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 6001171460096,
+        "available_bytes": 4847225225216
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mount_point": "[REDACTED_PATH]",
+        "total_bytes": 255084982272,
+        "available_bytes": 21503631360
+      }
+    ],
+    "network_interfaces": [
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": [
+          "[REDACTED_IP]",
+          "[REDACTED_IP]"
+        ]
+      },
+      {
+        "name": "[REDACTED_DEVICE_NAME]",
+        "mac_address": "[REDACTED_MAC]",
+        "addresses": []
+      }
+    ],
+    "local_ips": [
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]",
+      "[REDACTED_IP]"
+    ],
+    "warnings": []
+  },
+  "passed": true,
+  "privacy": {
+    "sanitized": true,
+    "policy": "mira-report-redaction-v1",
+    "notice": "Publication copy; original check outcomes retained. Addresses, identifiers and local paths redacted; review free-form output before sharing."
+  }
+}
